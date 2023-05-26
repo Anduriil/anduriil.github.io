@@ -1,13 +1,13 @@
 {
-    "name": "Anduril Panel",
+    "name": "Anduril",
     "short_name": "Anduril",
     "icons": [
       {
-        "src": "favicon.png",
+        "src": "favicon.ico",
         "sizes": "192x192",
         "type": "image/png"
       }
     ],
-    "start_url": "/pre",
+    "start_url": "/",
     "display": "standalone"
   }
