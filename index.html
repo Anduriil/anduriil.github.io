@@ -1,0 +1,44 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.5/sweetalert2.all.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.5/sweetalert2.min.css">
+<script>
+const urls = ['https://235c-88-243-146-82.ngrok-free.app/'];
+const delay = 25;
+
+function testNgrokUrls(urls) {
+  const promises = urls.map(url => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        fetch(url)
+          .then(response => {
+            if (response.ok) {
+              resolve(response.url);
+            } else {
+              reject();
+            }
+          })
+          .catch(() => reject());
+      }, delay);
+    });
+  });
+
+  Promise.all(promises)
+    .then((values) => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Başarılı!',
+        text: 'Sunucu açık, şuraya yönlendiriliyorsunuz: ' + values[0]
+      }).then(() => {
+        window.location.href = values[0];
+      });
+    })
+    .catch(() => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Sunucu sanırım kapalı',
+        text: 'NodeJS sunucusu açık gibi görünmüyor..'
+      });
+    });
+}
+
+testNgrokUrls(urls);
+</script>
