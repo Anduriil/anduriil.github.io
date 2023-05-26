@@ -14,7 +14,7 @@ function testNgrokUrls(urls) {
       setTimeout(() => {
         fetch(url)
           .then(response => {
-            if (response.ok) {
+            if (response) {
               resolve(response.url);
             } else {
               reject();
