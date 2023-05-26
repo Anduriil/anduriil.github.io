@@ -1,2 +1,2 @@
-"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --app=https://anduriil.github.io
+"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe" --app=https://anduriil.github.io
 exit
